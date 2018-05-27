@@ -1,6 +1,7 @@
 'use strict';
 
-var easyrtc = require('easyrtc');
+//var easyrtc = require('easyrtc');
+var easyrtc = require('./easyrtc/index');
 var fs = require('fs');
 var express = require('express');
 var basicAuth = require('basic-auth'); //for the admin page
@@ -18,7 +19,8 @@ var webServer = null;
 //   3. settings.json file
 nconf.argv()
      .env()
-     .file({ file: 'settings.json' });
+     .file({ file: 'settings.ssl.json' });
+     //.file({ file: 'settings.json' });
 
 // Web application setup (for setting up routes)
 var tubertcApp = express();
