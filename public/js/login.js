@@ -274,6 +274,11 @@ var Login = {
      */
     _browserCompatCheck: function() {
         var userAgent = navigator.userAgent;
+        var isInWebAppiOS = (userAgent.match(/iPhone|iPad|iPod/i));
+        console.log("Is iOS? " + isInWebAppiOS);
+
+        if (isInWebAppiOS != null)
+            return 'untested';
 
         if (!('Notification' in window)) {
             ErrorMetric.log('_browserCompatCheck => browser does not support Notifications');
