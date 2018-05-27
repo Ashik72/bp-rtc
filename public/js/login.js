@@ -357,7 +357,34 @@ var Login = {
      * @returns {Object} The current Login instance for chaining purposes.
      * @public
      */
+
+
+    getQueryParams: function (qs) {
+        qs = qs.split("+").join(" ");
+        var params = {},
+            tokens,
+            re = /[?&]?([^=]+)=([^&]*)/g;
+
+        while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])]
+                = decodeURIComponent(tokens[2]);
+        }
+
+        return params;
+    },
+
+    doAuto: function() {
+    },
+
     initialize: function(config) {
+
+        ///
+       // Login.doAuto();
+
+
+
+        ///
+
         var _this = this;
         if (typeof config.cameraBtn !== 'object' ||
             typeof config.micBtn !== 'object' ||
@@ -418,6 +445,34 @@ var Login = {
 
         var userName = StorageCookie.getValue('userName');
         var roomName = Query.getRoomName();
+
+        ///custom
+        var userData = Login.getQueryParams(document.location.search);
+
+        localStorage.setItem('userDataStat', false);
+        window.userDataStat = localStorage.getItem('userDataStat');
+
+        if ( (typeof userData.room != 'undefined') && (typeof userData.username != 'undefined') ) {
+            console.log(userData);
+            localStorage.setItem('username', userData.username);
+            localStorage.setItem('roomName', userData.room);
+
+            userName = localStorage.getItem('username');
+            roomName = localStorage.getItem('roomName');
+            localStorage.setItem('userDataStat', true);
+
+            window.userDataStat = localStorage.getItem('userDataStat');
+
+        } else if ( (typeof userData.room != 'undefined') && (typeof userData.username == 'undefined') ) {
+
+            userName = localStorage.getItem('username');
+            roomName = localStorage.getItem('roomName');
+            localStorage.setItem('userDataStat', true);
+            window.userDataStat = localStorage.getItem('userDataStat');
+
+        }
+        console.log([userName, roomName]);
+        //custom end
 
         if (userName !== null) {
             // @todo Verify that this doesn't introduce XSS
@@ -482,7 +537,10 @@ var Login = {
             }
         });
 
+
+
         _joinBtn.click(function() {
+            console.log("_joinBtn clicked");
             if (_this._validate()) {
                 _loginAlert
                     .stop(true, false)
@@ -546,7 +604,21 @@ var Login = {
      * @public
      */
     done: function(completionFn) {
+        console.log("completionFn called");
         this._completionFn = completionFn;
+        //custom
+
+        if (window.userDataStat)
+            _joinBtn.trigger("click");
+
+        //custom end
+
         return this;
     }
+
 };
+
+Login._j
+
+// if (userDataStat)
+//     _joinBtn.trigger("click");

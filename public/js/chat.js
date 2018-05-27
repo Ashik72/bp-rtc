@@ -449,7 +449,7 @@ var Chat = function(roomName) {
 
         // @todo FIXME: it would be cool to have some text here...
         this.addNotification('Welcome! Feel free to use this to communicate.');
-        this.addNotification('To see a list of chatroom commands, type /help');
+       // this.addNotification('To see a list of chatroom commands, type /help');
         this.userEntered(peerId, userName);
 
         // Used for detection of new lines in the chat text entry

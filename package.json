@@ -15,12 +15,13 @@
         "video"
     ],
     "dependencies": {
+        "basic-auth": "*",
         "easyrtc": "*",
         "express": "*",
+        "handlebars": "*",
         "nconf": "*",
         "socket.io": "*",
-        "handlebars": "*",
-        "basic-auth": "*"
+        "wordpress-rest-api-oauth-1": "^1.1.7"
     },
     "devDependencies": {
         "jsdoc": "3.3.3"

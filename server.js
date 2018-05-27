@@ -1,5 +1,7 @@
 'use strict';
 
+
+var api = require('wordpress-rest-api-oauth-1');
 //var easyrtc = require('easyrtc');
 var easyrtc = require('./easyrtc_beta/index');
 var fs = require('fs');
@@ -12,6 +14,25 @@ var nconf = require('nconf');
 var obj = JSON.parse(fs.readFileSync('roomList.json', 'utf8'));
 
 var webServer = null;
+
+//import api from 'wordpress-rest-api-oauth-1'
+//console.log( api )
+
+/*const demoApi = api.default({
+    url: 'http://bp-rtc.sites.dev/',
+    brokerCredentials: {
+        client: {
+            public: 'lQwm17cjYAkz',
+            secret: 'BT5Dx05MZQrZ4hJlOOllFuj0tQ5lg3jbMJGK5pMflwN6F5b6'
+        }
+    }
+})
+
+// Get OAuth client tokens for the specified site. This is not needed if using `authorize()`.
+demoApi.getConsumerToken().then( token => {
+    console.log( token )
+})*/
+
 
 // Try to find configuring files in the following places (in order)
 //   1. Command-line arguments

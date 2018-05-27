@@ -52,6 +52,7 @@ var svgToInlineSvg = function(completionFn) {
 
 // The "About" dialog template
 var attrDialogTmpl = Handlebars.compile(
+
     // @todo Add some blob of text/image here
     // @todo FIXME: modify attribution information here
     // @todo Check the LICENSE for each of the used frameworks to figure out if there
@@ -66,6 +67,7 @@ var attrDialogTmpl = Handlebars.compile(
 $(document).ready(function() {
     NavBar.initialize();
     NavBar.attrBtn.onClick(function() {
+        return;
         Dialog.show({
             title: 'About',
             content: attrDialogTmpl({})
