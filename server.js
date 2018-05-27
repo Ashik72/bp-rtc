@@ -1,7 +1,7 @@
 'use strict';
 
 //var easyrtc = require('easyrtc');
-var easyrtc = require('./easyrtc/index');
+var easyrtc = require('./easyrtc_beta/index');
 var fs = require('fs');
 var express = require('express');
 var basicAuth = require('basic-auth'); //for the admin page
