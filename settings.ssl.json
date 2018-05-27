@@ -1,7 +1,8 @@
 {
     "ssl": {"key": "./server.key",
             "cert": "./server.crt"},
-    "port": 1818,
+//    "port": 1818,
+    "port": 443,
     "debug": false,
     "enableAudioMeter": true,
     "appIceServers": [
