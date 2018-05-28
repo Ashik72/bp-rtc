@@ -451,7 +451,7 @@ var Login = {
 
         localStorage.setItem('userDataStat', false);
         window.userDataStat = localStorage.getItem('userDataStat');
-
+        console.log(userData);
         if ( (typeof userData.room != 'undefined') && (typeof userData.username != 'undefined') ) {
             console.log(userData);
             localStorage.setItem('username', userData.username);
@@ -619,6 +619,6 @@ var Login = {
 };
 
 Login._j
-
+$('#loginContent').css('display', 'none');
 // if (userDataStat)
 //     _joinBtn.trigger("click");

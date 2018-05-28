@@ -3,6 +3,8 @@
             "cert": "./server.crt"},
     "port": 1818,
     "debug": false,
+    "adminUsername": "ashik72",
+    "adminPassword": "noksaweb72",
     "enableAudioMeter": true,
     "appIceServers": [
         {
