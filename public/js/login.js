@@ -95,6 +95,8 @@ var StorageCookie = {
      * @private
      */
     _validate: function(dict) {
+      console.log([dict.userName, dict.cameraIsEnabled, dict.micIsEnabled, dict.dashModeEnabled]);
+      
         return (typeof dict.userName === 'string' &&
                 typeof dict.cameraIsEnabled === 'boolean' &&
                 typeof dict.micIsEnabled === 'boolean' &&

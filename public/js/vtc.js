@@ -269,12 +269,16 @@ var VTCCore = {
         }
 
         this.config = config;
+        console.log(config);
 
         easyrtc.setOnError(function(errorObject) {
             ErrorMetric.log('easyrtc.onError => An error has occurred with easyrtc');
             ErrorMetric.log('                => code: ' + errorObject.errorCode);
             ErrorMetric.log('                => text: ' + errorObject.errorText);
+            console.log(errorObject);
 
+            window.location.reload();
+            return;
             if (_this._errorFn !== undefined) {
                 _this._errorFn({
                     title: 'An Error Has Occurred',
