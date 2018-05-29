@@ -281,7 +281,9 @@ var vtcMain = function(params) {
             var viewport = trtcDash.createGridForNewUser();
             viewport.videoSrc
                 .css('display', 'none')
-                .addClass('video_mirror');
+                .addClass('video_mirror')
+                .attr('playsinline', 'playsinline');
+
             client.setVideoObjectSrc(viewport.videoSrc, stream);
 
             if (typeof AudioMeter === 'object') {
